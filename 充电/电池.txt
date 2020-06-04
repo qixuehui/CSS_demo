@@ -1,0 +1,15 @@
+//1充电没有波纹
+1框架 与本例问标准 电池有上（电池口）下（电池身）
+2.添加css（最重要是动画）{
+电池口，电池身（本身没有渐变，但是充电时（::after）会有颜色的渐变，和动画（background: linear-gradient(to bottom, #7abcff 0%, #00BCD4 44%, #2196F3 90%);
+  animation: charging 10s linear infinite;（由于渐变是不能搭配动画的所以需要（滤镜））））
+}
+//有波纹
+1在框架上在加波纹的div
+2加css
+
+
+
+
+
+
