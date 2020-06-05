@@ -1,0 +1,272 @@
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background: #000;
+    /* 剪切多余的 */
+    overflow: hidden;
+}
+
+.g-number {
+    position: absolute;
+    width: 300px;
+    top: 27%;
+    text-align: center;
+    font-size: 32px;
+    z-index: 10;
+    color: #fff;
+}
+
+.g-container {
+  /* 相对自身的div */
+    position: relative;
+    width: 300px;
+    height: 400px;
+    margin: auto;
+}
+
+.g-contrast {
+  /* 对比度,以达到颜色改变 */
+    filter: contrast(15) hue-rotate(0);
+    width: 300px;
+    height: 400px;
+    background-color: #000;
+    overflow: hidden;
+    animation: hueRotate 10s infinite linear;
+}
+
+.g-circle {
+    position: relative;
+    width: 300px;
+    height: 300px;
+    /* 并排 */
+    box-sizing: border-box;
+    /* 模糊度 制造有点缺失的感觉*/
+    filter: blur(9px);
+}
+/* 外 */
+.g-circle::after {
+    content: "";
+    position: absolute;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%) rotate(0);
+    width: 200px;
+    height: 200px;
+    background-color: #00ff6f;
+    border-radius: 42% 38% 62% 49% / 45%;
+    animation: rotate 10s infinite linear;
+}
+/* 里 */
+.g-circle::before {
+    content: "";
+    position: absolute;
+    width: 176px;
+    height: 176px;
+    top: 40%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 50%;
+    background-color: #000;
+    z-index: 10;
+}
+.g-bubbles {
+    position: absolute;
+    left: 50%;
+    bottom: 0;
+    width: 100px;
+    height: 40px;
+    transform: translate(-50%, 0);
+    border-radius: 100px 100px 0 0;
+    background-color: #00ff6f;
+    filter: blur(5px);
+}
+
+li {
+    position: absolute;
+    border-radius: 50%;
+    background: #00ff6f;
+}
+/* 若是发现运行不了泡泡,那是因为你的编辑器不接受sass cass */
+ @for $i from 0 through 15 {
+    li:nth-child(#{$i}) {
+        $width: 15 + random(15) + px;
+        left: 15 + random(70) + px;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        width: $width;
+        height: $width;
+        animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+    }
+}
+/* 改成css可以接受的,我没改哈,我感觉麻烦,下面是模板,里面的数据还有sass的数据 */
+/* li:nth-child(0) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(1) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(2) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(3) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(4) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(5) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(6) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(7) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(8) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(9) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(10) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(11) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(12) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(13) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(14) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+}
+li:nth-child(15) {
+    $width: 15 + random(15) + px;
+    left: 15 + random(70) + px;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: $width;
+    height: $width;
+    animation: moveToTop #{random(6) + 3}s ease-in-out -#{random(5000)/1000}s infinite;
+} */
+
+@keyframes rotate {
+    50% {
+        border-radius: 45% / 42% 38% 58% 49%;
+    }
+    100% {
+        transform: translate(-50%, -50%) rotate(720deg);
+    }
+}
+
+@keyframes moveToTop {
+    90% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0.1;
+        transform: translate(-50%, -180px);
+    }
+}
+
+@keyframes hueRotate {
+    100% {
+      /* 调整对比度,和旋转 */
+        filter: contrast(15) hue-rotate(360deg);
+    }
+}
