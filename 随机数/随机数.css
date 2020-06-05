@@ -1,0 +1,50 @@
+@keyframes changeOrder {
+  from { z-index: 6; }
+  to { z-index: 1; }
+}
+
+/* 所有的 label 通过绝对定位互相重叠 */
+label {
+  animation: changeOrder 3s infinite linear;
+  background: #ff0f00;
+  cursor: pointer;
+  display: block;
+  left: 1rem;
+  padding: 1rem;
+  border-radius : 25px 25px 25px 25px;
+  position: absolute;
+  top: 100px;
+  /* <!--none:不可以选择文本  --> */
+  user-select: none;
+}
+/* <!-- 它的伸缩性不是很好 小型的数字可以这样做,大型的话就直接进行调高时间 --> */
+label:active {
+    margin-left: 200%;
+/* <!-- 默认值。没有定位，元素出现在正常的流中（忽略 top, bottom, left, right 或者 z-index 声明）。
+    所以会打破堆叠上下文 --> */
+    position: static;
+}
+
+label:active::before {
+content: "";
+position: absolute;
+top: 0;
+right: 0;
+left: 0;
+bottom: 0;
+z-index: 10;
+}
+
+label:nth-of-type(1) { animation-delay: -0.0s; }
+label:nth-of-type(2) { animation-delay: -0.5s; }
+label:nth-of-type(3) { animation-delay: -1.0s; }
+label:nth-of-type(4) { animation-delay: -1.5s; }
+label:nth-of-type(5) { animation-delay: -2.0s; }
+label:nth-of-type(6) { animation-delay: -2.5s; }
+
+#d1:checked ~ p span::after { content: "1"; }
+#d2:checked ~ p span::after { content: "2"; }
+#d3:checked ~ p span::after { content: "3"; }
+#d4:checked ~ p span::after { content: "4"; }
+#d5:checked ~ p span::after { content: "5"; }
+#d6:checked ~ p span::after { content: "6"; }
