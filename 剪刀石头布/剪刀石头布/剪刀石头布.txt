@@ -1,0 +1,38 @@
+1：框架
+1.输出（9种可能）//这个在界面是看不出的
+电脑的手
+用户的手
+选择的icons
+2：css
+进行添加css
+在这里我们重点解析输出
+当我们对局结束时应当将手部的动作结束
+input:checked ~ div .hand {
+  animation: none !important;
+}
+当为剪刀时
+电脑的手和用户的手的手指1，2会向前出来
+这个是将1伸出来
+input[id$="scissors"]:checked ~ div #user-hand .finger-1,
+input[id^="scissors"]:checked ~ div #computer-hand .finger-1 {
+  width: 130px;
+  transform:rotate(-5deg);
+}
+当为布时四根手指伸出
+input[id$="paper"]:checked ~ div #user-hand .finger-1,
+input[id$="paper"]:checked ~ div #user-hand .finger-2,
+input[id$="paper"]:checked ~ div #user-hand .finger-3,
+input[id$="paper"]:checked ~ div #user-hand .finger-4,
+input[id^="paper"]:checked ~ div #computer-hand .finger-1,
+input[id^="paper"]:checked ~ div #computer-hand .finger-2,
+input[id^="paper"]:checked ~ div #computer-hand .finger-3,
+input[id^="paper"]:checked ~ div #computer-hand .finger-4  {
+  left: 124px;
+  left: calc(124px + var(--dif));
+  width: 80px;
+  border-left: 0;
+  border-radius: 0 20px 20px 0;
+为石头时就保持原状
+}
+
+之后就是随机的设置，可以参考之前的随机数
