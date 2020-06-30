@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            perspective: 500px;
+        }
+        
+        .hb {
+            position: relative;
+            height: 200px;
+            width: 200px;
+            margin: 0 auto;
+            transition: all .5s;
+            /* 随立体给谁加 */
+            transform-style: preserve-3d;
+        }
+        
+        .hb:hover {
+            transform: rotateY(180deg);
+        }
+        
+        .c1 {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            background-color: blue;
+            text-align: center;
+            line-height: 200px;
+            transform: rotateY(180deg);
+        }
+        
+        .c2 {
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 200px;
+            width: 200px;
+            border-radius: 50%;
+            background-color: pink;
+            text-align: center;
+            line-height: 200px;
+            z-index: 1;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="hb">
+        <div class="c1">我是小可爱</div>
+        <div class="c2">哈哈哈我才是</div>
+    </div>
+</body>
+
+</html>

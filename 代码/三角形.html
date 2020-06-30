@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .main {
+            position: relative;
+        }
+        
+        .triangle {
+            position: absolute;
+            top: 4px;
+            left: 142px;
+            height: 10px;
+            width: 10px;
+            border-bottom: 1px solid #000;
+            border-right: 1px solid #000;
+            transform: rotate(45deg);
+        }
+        
+        .main2 {
+            position: relative;
+            overflow: hidden;
+            height: 150px;
+            width: 150px;
+            margin: 0 auto;
+            border: 1px solid pink;
+        }
+        
+        .main2:hover::before {
+            transform: rotateX(0deg);
+        }
+        
+        .main2::before {
+            content: "";
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            height: 150px;
+            width: 150px;
+            background-color: darkgoldenrod;
+            transform: rotate(180deg);
+            transform-origin: left bottom;
+            transition: all 0.5s;
+        }
+        
+        .main3 {
+            height: 338px;
+            width: 419px;
+            overflow: hidden;
+        }
+        
+        img {
+            /* 随改变给随做过渡 */
+            transition: all .5s;
+        }
+        
+        img:hover {
+            transform: scale(1.1);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="main">
+        <input type="text" name="" id="">
+        <div class="triangle"></div>
+    </div>
+    <div class="main2">
+    </div>
+    <div class="main3">
+        <img src="pic.png" alt="">
+    </div>
+</body>
+
+</html>
