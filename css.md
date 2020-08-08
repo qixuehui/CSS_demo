@@ -1,6 +1,6 @@
 # 13D相册
 
-![](E:\资料\博客\前端\pc\CSS\css_demo\img\1.png)
+![login](https://github.com/qixuehui/CSS_demo/blob/master/img/1.png)
 
 # 2felx简单布局
 
